@@ -1,0 +1,11 @@
+<h1>Hotels</h1>
+
+<% @hotels.each do |hotel| %>
+  <h3><%= hotel.name %></h3>
+
+  <% hotel.rooms.each do |room| %>
+    <p><%= room.name %></p>
+
+  <% end %>
+
+<% end %>

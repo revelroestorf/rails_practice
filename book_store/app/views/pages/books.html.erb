@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Books</title>
+  </head>
+
+  <body>
+    <h1>Books</h1>
+
+    <% @books.each do |book| %>
+
+      <%= image_tag(book.img_url) %>
+      <%= book.title %>
+      <%= "#{book.rating} stars" %>
+      <%= book.author.name %>
+      <%= link_to('show', pages_show_book_path(id: book.id)) %>
+
+      <br>
+
+
+    <% end %>
+
+  </body>
+</html>

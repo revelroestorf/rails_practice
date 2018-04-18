@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Authors</title>
+  </head>
+  
+  <body>
+    <h1>Authors</h1>
+
+    <% @authors.each do |author| %>
+
+      <i><%= image_tag(author.img_url) %></i>
+      <i><%= "#{author.first_name} #{author.last_name}" %></i>
+      <i><%= link_to('his books', action: 'author_books', params: {id: author.id}) %> </i>
+      <br>
+
+    <% end %>
+
+  </body>
+</html>

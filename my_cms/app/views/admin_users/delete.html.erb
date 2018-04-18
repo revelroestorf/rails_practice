@@ -1,0 +1,23 @@
+<% @page_title = 'Delete Admin User' %>
+
+<%= link_to("<< Back to List", admin_users_path, :class => 'back-link') %>
+
+<div class="admin_users delete">
+  <h2>Delete Admin User</h2>
+
+  <%= form_for(@admin_user, :method => 'delete') do |f| %>
+  <!-- Must provide method for delete or will think update!
+  Only for this action, all others are auto -->
+
+    <p>Are you sure you want to permanently delete this admin user?</p>
+
+    <p class="reference-name"><%= f.object.name %></p>
+    <!-- or could use @subject instead of 'object' but 'object'
+    is always whatever object the program is working with -->
+
+    <div class="form-buttons">
+      <%= f.submit("Delete Admin User") %>
+    </div>
+
+  <% end %>
+</div>

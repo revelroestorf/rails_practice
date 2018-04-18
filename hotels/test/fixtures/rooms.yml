@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hotel: one
+  name: MyString
+  ppn: MyString
+
+two:
+  hotel: two
+  name: MyString
+  ppn: MyString

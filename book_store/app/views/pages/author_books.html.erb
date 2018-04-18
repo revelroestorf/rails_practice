@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Author_Books</title>
+  </head>
+    
+  <body>
+    <h1>Author_Books</h1>
+
+    <% @author.books.each do |book| %>
+
+      <p><%= book.title %></P>
+
+    <% end %>
+
+  </body>
+</html>

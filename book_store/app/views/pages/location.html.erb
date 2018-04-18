@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+  <body>
+
+    <h2>Your nearest store is:</h2>
+    <br>
+
+    <% @stores.each do |store| %>
+      <%= store.title %>
+      <%= store.distance %>
+      <br>
+    <% end %>
+
+  </body>
+</html>

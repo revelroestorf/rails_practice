@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Stores</title>
+
+  <body>
+
+    <% @stores.each do |store| %>
+      <h2><%= store.title %></h2>
+      <h2><%= store.address %></h2>
+      <%= link_to('show', action: 'show_store', params: {id: store.id}) %>
+    <% end %>
+
+    <%= form_tag("/pages/location", method: "post") do %>
+      <%= label_tag(:input, "Your location:") %>
+      <%= text_field_tag(:input) %>
+      <%= submit_tag("Submit") %>
+    <% end %>
+
+  </body>
+</html>
