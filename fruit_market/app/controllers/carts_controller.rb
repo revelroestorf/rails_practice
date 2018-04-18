@@ -6,7 +6,10 @@ class CartsController < ApplicationController
   # GET /carts.json
   def index
     @carts = current_user.carts.all
-    # @product = Product.find(cart.product_id).name
+    @total = 0
+    @carts.each do |cart|
+      @total += cart.product.price * cart.qty
+    end
   end
 
   # GET /carts/1

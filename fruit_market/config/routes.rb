@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :admin_users
 
+  resources :charges
+
   # match 'admin/carts', to: 'admin_users#carts', via: :get
 
   get ':controller(/:action(/:id))'

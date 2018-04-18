@@ -1,7 +1,12 @@
 <p id="notice"><%= notice %></p>
+<br>
+<%= link_to '<< Back to shopping', products_path %>
+<br>
+<hr>
 
 <h1>Your Cart</h1>
 
+<hr>
 <table>
   <thead>
     <tr>
@@ -23,12 +28,36 @@
         <td><%= cart.qty %></td>
         <td><%= link_to 'update', edit_cart_path(cart) %></td>
         <td><%= number_to_currency(Product.find(cart.product_id).price) %></td>
-
         <td><%= link_to 'remove', cart, method: :delete %></td>
       </tr>
     <% end %>
+    <tr>
+    </tr>
+    <tr>
+      <td><strong>Total</strong></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><strong><%= number_to_currency(@total) %></strong></td>
+      <td></td>
+    </tr>
   </tbody>
 </table>
-<br>
-<%= link_to '<< Back to shopping', products_path %>
-<br>
+
+<%= form_tag charges_path(amount: (@total * 100)) do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A month's subscription"
+          data-amount="<%= @total * 100 %>"
+          data-locale="auto"></script>
+<% end %>
