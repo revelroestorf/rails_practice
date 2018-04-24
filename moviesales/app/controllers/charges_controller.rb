@@ -8,7 +8,7 @@ class ChargesController < ApplicationController
 
   def create
 
-    @movie = Movie.find(params[:id])
+    @movie = Movie.find(params[:movie_id])
 
     customer = Stripe::Customer.create(
       email: params[:stripeEmail],

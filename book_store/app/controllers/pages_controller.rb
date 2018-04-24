@@ -5,10 +5,12 @@ class PagesController < ApplicationController
 
   def authors
     @authors = Author.all
+    not_authorised unless current_user.has_role?(:authors) || current_user.has_role?(:admin)
   end
 
   def books
     @books = Book.all
+    not_authorised unless current_user.has_role?(:books) || current_user.has_role?(:admin)
   end
 
   def show_book
@@ -21,6 +23,7 @@ class PagesController < ApplicationController
 
   def stores
     @stores = Store.all
+    not_authorised unless current_user.has_role?(:stores) || current_user.has_role?(:admin)
   end
 
   def show_store
@@ -33,6 +36,12 @@ class PagesController < ApplicationController
       flash.now[:notice] = "Error"
       redirect_to(action: 'stores')
       # will run when an error occurs
+  end
+
+  private
+  def not_authorised
+    flash[:notice] = "You are not authorised"
+    redirect_to(root_path)
   end
 
 end

@@ -28,18 +28,16 @@
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>
 
-<%= form_tag charges_path(id: @movie.id) do %>
+<%= form_tag charges_path do %>
   <article>
     <% if flash[:error].present? %>
       <div id="error_explanation">
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
-    <label class="amount">
-    </label>
   </article>
 
-<!-- <%= hidden_field_tag :movie_id, @movie.id %> -->
+<%= hidden_field_tag :movie_id, @movie.id %>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
