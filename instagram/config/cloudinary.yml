@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: brisbane-milk
+  api_key: '712985139258916'
+  api_secret: lUFb0flcrglzmZOT2tqPO0_3tUM
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: brisbane-milk
+  api_key: '712985139258916'
+  api_secret: lUFb0flcrglzmZOT2tqPO0_3tUM
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: brisbane-milk
+  api_key: '712985139258916'
+  api_secret: lUFb0flcrglzmZOT2tqPO0_3tUM
+  enhance_image_tag: true
+  static_image_support: false

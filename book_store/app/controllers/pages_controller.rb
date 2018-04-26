@@ -9,8 +9,13 @@ class PagesController < ApplicationController
   end
 
   def books
-    @books = Book.all
     not_authorised unless current_user.has_role?(:books) || current_user.has_role?(:admin)
+    @books = Book.all
+    @books = @books.public_send(:title, params[:title]) if params[:title].present?
+    @books = @books.public_send(:rating, params[:rating]) if params[:rating].present?
+    @books = Author.all.public_send(:author, params[:author]).first.books if params[:author].present?
+    @books = @books.public_send(:min_price, params[:min_price]) if params[:min_price].present?
+    @books = @books.public_send(:max_price, params[:max_price]) if params[:max_price].present?
   end
 
   def show_book
@@ -43,5 +48,7 @@ class PagesController < ApplicationController
     flash[:notice] = "You are not authorised"
     redirect_to(root_path)
   end
-
+  # def filter_params
+  #   params.slice(:tits)
+  # end
 end

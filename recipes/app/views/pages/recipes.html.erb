@@ -1,0 +1,10 @@
+<h1>Recipes</h1>
+
+<% @recipes.each do |recipe| %>
+
+  <p><%= recipe.name.capitalize %></p>
+  <p><%= recipe.ingredients %></p>
+  <hr>
+
+
+<% end %>
